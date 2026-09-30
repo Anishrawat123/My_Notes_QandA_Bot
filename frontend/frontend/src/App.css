@@ -1,0 +1,956 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  background: #09090b;
+  color: #f4f4f5;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+  min-height: 100vh;
+
+  display: flex;
+
+  background:
+    radial-gradient(
+      circle at 70% 5%,
+      rgba(120, 80, 255, 0.14),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 40% 80%,
+      rgba(80, 60, 180, 0.06),
+      transparent 35%
+    ),
+    #09090b;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  min-height: 100vh;
+
+  padding: 28px;
+
+  border-right: 1px solid #27272a;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(18, 18, 22, 0.92),
+      rgba(12, 12, 15, 0.88)
+    );
+
+  backdrop-filter: blur(20px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 50px;
+
+  color: #ffffff;
+
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.upload-section h3 {
+  margin: 0;
+
+  color: #a1a1aa;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+
+/* =========================================================
+   UPLOAD BOX
+========================================================= */
+
+.upload-box {
+  width: 100%;
+
+  margin-top: 18px;
+  padding: 25px 18px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  border: 1px dashed #3f3f46;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.01)
+    );
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.upload-box:hover {
+  border-color: #71717a;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.02)
+    );
+
+  transform: translateY(-1px);
+}
+
+.upload-box:active {
+  transform: translateY(0);
+}
+
+.upload-box span {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 12px;
+
+  border-radius: 14px;
+
+  background: #18181b;
+  border: 1px solid #27272a;
+
+  color: #d4d4d8;
+
+  font-size: 25px;
+}
+
+.upload-box strong {
+  max-width: 100%;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: #f4f4f5;
+
+  font-size: 13px;
+}
+
+.upload-box small {
+  margin-top: 7px;
+
+  color: #71717a;
+
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.upload-box input {
+  display: none;
+}
+
+
+/* =========================================================
+   FILE CARD
+========================================================= */
+
+.file-card {
+  margin-top: 15px;
+  padding: 12px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  background: #18181b;
+  border: 1px solid #27272a;
+
+  color: #d4d4d8;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  transition: border-color 0.2s ease;
+}
+
+.file-card:hover {
+  border-color: #3f3f46;
+}
+
+
+/* =========================================================
+   UPLOAD BUTTON
+========================================================= */
+
+.upload-button {
+  width: 100%;
+
+  margin-top: 12px;
+  padding: 12px 16px;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  background: #f4f4f5;
+  color: #09090b;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.upload-button:hover:not(:disabled) {
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+
+.upload-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.upload-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status {
+  margin: 12px 2px 0;
+
+  color: #a78bfa;
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main {
+  width: 100%;
+  max-width: 1100px;
+
+  min-height: 100vh;
+
+  margin: 0 auto;
+
+  padding: 60px 60px 130px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+  width: 100%;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #a1a1aa;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 1.2px;
+}
+
+.header h1 {
+  max-width: 800px;
+
+  margin: 15px 0 12px;
+
+  color: #fafafa;
+
+  font-size: clamp(40px, 5vw, 56px);
+  line-height: 1.03;
+
+  letter-spacing: -2.5px;
+}
+
+.header p {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: #a1a1aa;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CHAT AREA
+========================================================= */
+
+.chat-area {
+  min-height: 400px;
+
+  margin-top: 50px;
+  padding-bottom: 30px;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-state {
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  padding: 90px 20px;
+
+  text-align: center;
+
+  color: #a1a1aa;
+}
+
+.empty-icon {
+  width: 60px;
+  height: 60px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background: #18181b;
+  border: 1px solid #27272a;
+
+  color: #d4d4d8;
+
+  font-size: 28px;
+}
+
+.empty-state h2 {
+  margin: 20px 0 8px;
+
+  color: #f4f4f5;
+
+  font-size: 20px;
+}
+
+.empty-state p {
+  max-width: 500px;
+
+  margin: 0 auto;
+
+  color: #71717a;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   MESSAGE GROUP
+========================================================= */
+
+.message-group {
+  margin-bottom: 45px;
+}
+
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+.user-message,
+.ai-message {
+  display: flex;
+
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+
+  min-width: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #27272a;
+
+  color: #d4d4d8;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.ai-avatar {
+  background: #18181b;
+
+  border: 1px solid #3f3f46;
+
+  color: #c4b5fd;
+
+  font-size: 18px;
+}
+
+.user-message p {
+  margin: 8px 0;
+
+  color: #e4e4e7;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   ANSWER
+========================================================= */
+
+.answer-content {
+  width: 100%;
+  max-width: 750px;
+}
+
+.ai-label {
+  margin-bottom: 8px;
+
+  color: #a1a1aa;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.answer-content p {
+  margin: 0;
+
+  color: #e4e4e7;
+
+  line-height: 1.8;
+
+  white-space: pre-wrap;
+}
+
+
+/* =========================================================
+   ANSWER CARD
+========================================================= */
+
+.answer-card {
+  padding: 24px;
+
+  border: 1px solid #27272a;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(24, 24, 27, 0.95),
+      rgba(18, 18, 21, 0.9)
+    );
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.18);
+}
+
+.answer-label {
+  margin-bottom: 14px;
+
+  color: #a78bfa;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.answer {
+  margin: 0;
+
+  color: #e4e4e7;
+
+  font-size: 15px;
+  line-height: 1.8;
+
+  white-space: pre-wrap;
+}
+
+
+/* =========================================================
+   SOURCES
+========================================================= */
+
+.sources {
+  margin-top: 25px;
+  margin-left: 50px;
+}
+
+.sources h4,
+.sources h3 {
+  margin: 0 0 12px;
+
+  color: #71717a;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.source-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(220px, 1fr)
+    );
+
+  gap: 10px;
+}
+
+.source-card {
+  display: flex;
+
+  gap: 12px;
+
+  padding: 14px;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid #27272a;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.source-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+
+  border-color: #3f3f46;
+}
+
+.source-number {
+  width: 25px;
+  height: 25px;
+
+  min-width: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #27272a;
+
+  color: #d4d4d8;
+
+  font-size: 11px;
+}
+
+.source-card strong {
+  color: #d4d4d8;
+
+  font-size: 12px;
+}
+
+.source-card p {
+  margin: 5px 0 0;
+
+  color: #71717a;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   TYPING INDICATOR
+========================================================= */
+
+.typing {
+  width: fit-content;
+
+  display: flex;
+
+  gap: 5px;
+
+  padding: 14px 17px;
+
+  border-radius: 14px;
+
+  background: #18181b;
+
+  border: 1px solid #27272a;
+}
+
+.typing span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #71717a;
+
+  animation: typing 1.2s infinite ease-in-out;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%,
+  60%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+}
+
+
+/* =========================================================
+   QUESTION BOX
+========================================================= */
+
+.question-box {
+  position: sticky;
+
+  bottom: 20px;
+
+  z-index: 10;
+
+  width: 100%;
+
+  display: flex;
+
+  gap: 6px;
+
+  padding: 7px;
+
+  border: 1px solid #3f3f46;
+
+  border-radius: 20px;
+
+  background: rgba(24, 24, 27, 0.9);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.question-box:focus-within {
+  border-color: #71717a;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 0 3px rgba(167, 139, 250, 0.06);
+}
+
+.question-box input {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 13px 15px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #f4f4f5;
+
+  font-size: 14px;
+}
+
+.question-box input::placeholder {
+  color: #71717a;
+}
+
+.question-box input:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.6;
+}
+
+.question-box button {
+  width: 46px;
+  height: 46px;
+
+  min-width: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  background: #f4f4f5;
+  color: #09090b;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.question-box button:hover:not(:disabled) {
+  background: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+.question-box button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.question-box button:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.35;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .sidebar {
+    display: none;
+  }
+
+  .main {
+    width: 100%;
+
+    padding:
+      35px
+      18px
+      120px;
+  }
+
+  .header h1 {
+    font-size: 40px;
+
+    letter-spacing: -1.8px;
+  }
+
+  .header p {
+    font-size: 15px;
+  }
+
+  .chat-area {
+    margin-top: 35px;
+  }
+
+  .sources {
+    margin-left: 0;
+  }
+
+  .source-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .answer-card {
+    padding: 18px;
+  }
+
+  .question-box {
+    bottom: 12px;
+
+    border-radius: 17px;
+  }
+
+  .question-box input {
+    padding-left: 10px;
+
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .main {
+    padding:
+      28px
+      14px
+      110px;
+  }
+
+  .header h1 {
+    font-size: 34px;
+  }
+
+  .header p {
+    font-size: 14px;
+  }
+
+  .question-box {
+    padding: 5px;
+  }
+
+  .question-box button {
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+
+    border-radius: 12px;
+  }
+
+  .question-box input {
+    font-size: 13px;
+  }
+
+  .user-message,
+  .ai-message {
+    gap: 10px;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+
+    min-width: 32px;
+
+    border-radius: 10px;
+  }
+
+}

@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+.env
+node_modules/
+dist/
+*.pyc
+D:\My_Notes_QandA_Bot\help.txt/
