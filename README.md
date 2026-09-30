@@ -2,12 +2,16 @@
 
 ### 1. Application Interface
 
-![Application Interface](screenshots/home.png)
+![Application Interface](Screenshot/s1.png)
 
 ### 2. PDF Upload
 
-![PDF Upload](screenshots/pdf-upload.png)
+![PDF Upload](Screenshot/s2.png)
 
 ### 3. Question Answering
 
-![Question Answer](screenshots/answer.png)
+![Question Answer](Screenshot/s3.png)
+
+### 4. Question is not exist
+
+![Question Answer](Screenshot/s4.png)
